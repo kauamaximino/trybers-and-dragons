@@ -4,6 +4,7 @@ abstract class Archetypes {
   protected _name: string;
   protected _special: number;
   protected _cost: number;
+  static instances = 0;
 
   constructor(name: string) {
     this._name = name;

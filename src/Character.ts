@@ -5,8 +5,6 @@ import SimpleFighter from './Fighter/SimpleFighter';
 import Energy from './Energy';
 import getRandomInt from './utils';
 
-const random = getRandomInt(1, 10);
-
 class Character implements Fighter {
   private _race: Race;
   private _archetype: Archetype;
@@ -19,12 +17,10 @@ class Character implements Fighter {
 
   constructor(
     name: string,
-    race: Race = new Elf(name, random),
-    archetype: Archetype = new Mage(name),
   ) {
-    this._dexterity = random;
-    this._race = race;
-    this._archetype = archetype;
+    this._dexterity = getRandomInt(1, 10);
+    this._race = new Elf(name, this._dexterity);
+    this._archetype = new Mage(name);
     this._maxLifePoints = Math.round(this._race.maxLifePoints / 2);
     this._lifePoints = this._maxLifePoints;
     this._strength = getRandomInt(1, 10);
@@ -35,33 +31,19 @@ class Character implements Fighter {
     };
   }
 
-  public get race() {
-    return this._race;
-  }
+  public get race() { return this._race; }
 
-  public get archetype() {
-    return this._archetype;
-  }
+  public get archetype() { return this._archetype; }
 
-  public get maxLifePoints() {
-    return this._maxLifePoints;
-  }
+  public get maxLifePoints() { return this._maxLifePoints; }
 
-  public get lifePoints() {
-    return this._lifePoints;
-  }
+  public get lifePoints() { return this._lifePoints; }
 
-  public get strength() {
-    return this._strength;
-  }
+  public get strength() { return this._strength; }
 
-  public get defense() {
-    return this._defense;
-  }
+  public get defense() { return this._defense; }
 
-  public get dexterity() {
-    return this._dexterity;
-  }
+  public get dexterity() { return this._dexterity; }
 
   public get energy(): Energy {
     return {

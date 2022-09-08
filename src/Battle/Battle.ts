@@ -10,3 +10,5 @@ abstract class Battle {
 }
 
 export default Battle;
+
+// error avaliator github
